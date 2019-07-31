@@ -1,12 +1,11 @@
-﻿using Patient_Report.Models;
+﻿using Example_DVH.ViewModels;
+using Patient_Report.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
@@ -88,7 +87,7 @@ namespace Patient_Report.ViewModels
                 case (int)DoseMetricType.gEUD:
                     output = CalculateGEUD(s, 
                         _planSetup as PlanningItem, 
-                        structure_ids.FirstOrDefault(x => x.Key == s.Id)).ToString();
+                        structure_ids.FirstOrDefault(x => x.Key == s.Id)).ToString("F2");
                     break;
             }
             return output;
@@ -104,6 +103,14 @@ namespace Patient_Report.ViewModels
             {"stem",20 },
             {"PTV",-0.1 }
         };
+        /// <summary>
+        /// Method from WUSTL-ClinicalDev open source.
+        /// Terms of use from the code apply.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pi"></param>
+        /// <param name="a_lookup"></param>
+        /// <returns></returns>
         private double CalculateGEUD(Structure s, PlanningItem pi, KeyValuePair<string, double> a_lookup)
         {
             //collect the DVH

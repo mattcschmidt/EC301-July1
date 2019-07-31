@@ -4,19 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Patient_Report.Views"
-             xmlns:dvh="clr-namespace:Example_DVH.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600">
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal">
             <ComboBox Width="100" Margin="5" ItemsSource="{Binding Structures}"
                       SelectedItem="{Binding SelectedStructure}"/>
@@ -37,6 +32,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <!--<dvh:DVHView Grid.Row="1" Grid.Column="1"/>-->
+        <!--<dvh:DVHView Grid.Row="1" Grid.Column="1" DataContext="{Binding DVHViewModel}"/>-->
     </Grid>
 </UserControl>

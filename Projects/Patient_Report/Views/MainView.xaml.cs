@@ -13,18 +13,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VMS.TPS.Common.Model.API;
 
 namespace Patient_Report.Views
 {
     /// <summary>
-    /// Interaction logic for ReportView.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class ReportView : UserControl
+    public partial class MainView : UserControl
     {
+        private MainViewModel _mainViewModel;
 
-        public ReportView()
+        public MainView(MainViewModel mainViewModel)
         {
+            _mainViewModel = mainViewModel;
+            this.DataContext = _mainViewModel;
             InitializeComponent();
         }
     }

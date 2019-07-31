@@ -9,5 +9,6 @@
              d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
         <oxy:PlotView Model="{Binding MyPlotModel}"  />
+        
     </Grid>
 </UserControl>
